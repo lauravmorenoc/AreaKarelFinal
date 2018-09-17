@@ -13,10 +13,34 @@ public class Main {
         public static void main(String[] args) {
         objetos = new City("Field2.txt");
 	objetos.showThingCounts(true);    
-        estudiante = new Robot(objetos,10, 2, Direction.WEST,0);
-
+        estudiante = new Robot(objetos,19, 0, Direction.NORTH,0); 
+            if(hayFigura()){
+                Thing t1=new Thing(objetos, estudiante.getStreet(), estudiante.getAvenue()+1);
+            
             System.out.println("Area de la figura: " + recorrerFigura());
+            }
 }
+        
+        public static boolean hayFigura(){
+            while(estudiante.frontIsClear()&&((estudiante.getAvenue()!=19)||(estudiante.getStreet()!=19))){
+                estudiante.move();
+                if(estudiante.getStreet()==0){
+                    estudiante.turnLeft();
+                    estudiante.turnLeft();
+                } if(estudiante.getStreet()==19){
+                    estudiante.turnLeft();
+                    estudiante.move();
+                    estudiante.turnLeft();
+                }
+                
+            }
+            if(estudiante.frontIsClear()){
+                return false;
+            }else{
+                estudiante.turnLeft();
+                return true;
+            }
+        }
 
         public static void turnRight(){
             estudiante.turnLeft();
