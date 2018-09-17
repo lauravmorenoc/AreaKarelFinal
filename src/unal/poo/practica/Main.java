@@ -4,7 +4,7 @@ import becker.robots.*;
 
 /**
  * Ejercicios con el robot Karel
- * @author Laura Valentina Moreno Castro
+ * @author Laura Moreno, Hernan Quiroga, Juan Carrero, Juan Cardenas
  */
 public class Main {
      public static City objetos;
